@@ -1,0 +1,7 @@
+.git
+.git/
+logs/
+*.log
+tmp/
+grade.sh
+README.md
