@@ -99,7 +99,8 @@ if command -v docker >/dev/null 2>&1; then
 
   docker image rm "$IMAGE" >/dev/null 2>&1 || true
 else
-  echo "WARN: Docker is not available in local env, skipping Docker container tests"
+  echo "ERROR: Docker is required for Assignment 3 Docker checks."
+  FAIL=$((FAIL+1))
 fi
 
 # Student tests

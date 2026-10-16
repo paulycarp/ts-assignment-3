@@ -10,8 +10,9 @@ COPY app/ /app/app/
 COPY scripts/ /app/scripts/
 COPY tests/ /app/tests/
 
-# Set executable permissions
-RUN chmod +x /app/app/*.sh /app/scripts/*.sh /app/tests/*.sh
+# Normalize line endings (CRLF -> LF) and set executable permissions
+RUN sed -i 's/\r$//' /app/app/*.sh /app/scripts/*.sh /app/tests/*.sh && \
+    chmod +x /app/app/*.sh /app/scripts/*.sh /app/tests/*.sh
 
 ENTRYPOINT ["/app/app/app.sh"]
 CMD ["help"]
